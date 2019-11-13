@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+	<script type="text/javascript">
+ //<--
+ 		function sayHello() {
+	 		var words = new Array("Hello Friend", "Hola, Comustas?", "Hey There", "Hi There");
+	 		var words = words[Math.floor(Math.random() * words.length)];
+	 		var answerArray=[];
+	 		for (var i = 0; i < words.length; i++) {
+				answerArray[i] = "_";
+			}
+ 			alert(words)
+ 		}	
+ //-->
+ 		function over() {
+			document.write("Mouse OVer");
+		}
+		
+		function out() {
+			document.write("Mouse Out");
+		}
+ 
+		//Questions 
+		var questions = [ {"question":"What is your favorite Country?", "ans1":"USA", "ans2":"UK", "val1": 1, "val2":0 }, {"question":"What is your favorite pet?", "ans1":"Dog", "ans2":"Cat", "val1": 1, "val2":0 }, {"question":"What is your favorite Watch?", "ans1":"Rolex", "ans2":"AppleWatch", "val1": 1, "val2":0 }, {"question":"What is your favorite smart phone?", "ans1":"Apple", "ans2":"Android", "val1": 1, "val2":0 } ]
+
+ 	var questionNum= 0
+
+ 	var total = 1
+
+		function nextQuestion(ans){
+		total = total+ans;
+		console.log(total)
+		questionspot = document.querySelector("#questions")
+		questString ="<h6>Question "+(questionNum +2)+":</h6>"+
+		"<p>"+questions[questionNum].question+"</p>"+
+		"<input type=\"radio\" onselect=\"nextQuestion(this.value)\" value="+questions[questionNum].val1+">"+questions[questionNum].ans1+"<br>"+
+		"<input type=\"radio\" onselect=\"nextQuestion(this.value)\" value="+questions[questionNum].val2+">"+questions[questionNum].ans1
+		questionspot.innerHTML = questString
+		questionNum++
+		} 
+		
+ </script>
+</head>
+
+<body>
+	
+	<p> Click the following button and see result</p>
+	
+	<form>
+		<input type ="button" onclick="sayHello()" value="Say Hello" />
+	</form>
+	
+	<p> Bring your mouse inside the division to see the result: </p>
+	<div onmouseover="over(img src="naruto.jpg")" onmouseout="out(img src="narutooo.jpg")">
+	<h2> This is inside the division</h2>
+	</div>
+	
+	 <div id ="questions">
+            <h6>Question 1:</h6>
+            <p>What is your favorite Car?</p>
+            <input type="radio" onchange="nextQuestion(this.value)" value=0>BMW<br>
+            <input type="radio" onchange="nextQuestion(this.value)" value=1>Farrari
+	
+	
+	
+	
+</body>
+</html>
